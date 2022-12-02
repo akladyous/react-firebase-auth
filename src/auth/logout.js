@@ -1,7 +1,7 @@
 import { auth } from '../firebase-config.js'
 import { signOut } from "firebase/auth";
 
-export const logout = async () =>{
+export const logout = async () => {
     try {
         await signOut(auth);
         // set state to true

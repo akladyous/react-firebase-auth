@@ -26,7 +26,7 @@ const AuthContext = createContext();
 
 const handleErrors = (error) => {
     switch (error.code) {
-        case AuthErrorCodes.INVALID_PASSWORD: 
+        case AuthErrorCodes.INVALID_PASSWORD:
             return "invalid password"
         case AuthErrorCodes.INVALID_EMAIL:
             return "invalid email"
@@ -38,8 +38,8 @@ const handleErrors = (error) => {
             return "User Disabled";
         case AuthErrorCodes.USER_SIGNED_OUT:
             return "User signed out"
-    default: 
-        return "authentication error"
+        default:
+            return "authentication error"
     }
 }
 
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    useEffect( () => {
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user);
