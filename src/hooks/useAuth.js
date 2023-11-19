@@ -3,7 +3,6 @@ import { useState, useEffect, useContext, createContext } from 'react';
 import { initializeApp } from 'firebase/app';
 import { auth } from '../lib/firebase_init';
 import {
-  //   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
