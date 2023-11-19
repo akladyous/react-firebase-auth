@@ -1,8 +1,8 @@
 import { getApps, initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-import { getAuth } from 'firebase/auth';
-// import { getAnalytics } from 'firebase/analytics';
+import { getAuth, browserLocalPersistence, setPersistence } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
 // import { getDatabase } from 'firebase/database';
 
 export const firebaseConfig = {
@@ -19,5 +19,7 @@ export const firebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig
 export const db = getFirestore(firebaseApp);
 export const storage = getStorage(firebaseApp);
 export const auth = getAuth(firebaseApp);
-// export const analytics = getAnalytics(firebaseApp);
-// setPersistence(auth, browserSessionPersistence)
+export const analytics = getAnalytics(firebaseApp);
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {})
+  .catch((error) => console.log(error));

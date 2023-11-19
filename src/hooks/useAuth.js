@@ -1,6 +1,8 @@
-import { useState, useEffect, useContext, createContext } from 'react';
+import { useState, useEffect, useContext, createContext, useCallback } from 'react';
 
+import { User, UserCredential } from 'firebase/auth';
 import { auth } from '../lib/firebase_init';
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -83,6 +85,10 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  const getCurrentUser = useCallback(() => {
+    return auth.currentUser;
+  }, [auth]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
