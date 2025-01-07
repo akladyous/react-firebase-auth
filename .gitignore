@@ -1,0 +1,17 @@
+logs
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+
+.vscode/*
+**/node_modules/
+**/.env*
+**/.DS_Store
+**/*.log
+**/.cache
+
+
